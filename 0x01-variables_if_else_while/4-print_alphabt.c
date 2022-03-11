@@ -6,10 +6,13 @@
  */
 int main(void)
 {
-	int num;
+	char c;
 
-	for (num = 0; num < 10; num++)
-		printf("%d", num);
+	for (c = 'a'; c <= 'z'; c++)
+	{
+		if (c != 'e' && c != 'q')
+		putchar(c);
+	}
 	putchar('\n');
 	return (0);
 }
