@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * _isupper -  checks for uppercase character.
- * @c: c -  Variable
- * Return: Always 0.
- */
-int _isupper(int c)
+* _isdigit - Checks if c is digit between 0 to 9
+* @c: Character to be checked
+*
+* Return: 1 if c is digit, 0 otherwise
+*/
+int _isdigit(int c)
 {
-
-	if ((c >= 'A') && (c <= 'Z'))
-	{
+	if (c >= '0' && c <= '9')
 		return (1);
-	}
-	return (0);
+	else
+		return (0);
 }
