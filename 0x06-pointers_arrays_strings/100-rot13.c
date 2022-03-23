@@ -1,28 +1,34 @@
 #include "main.h"
-
 /**
- * rot13 - Function that reverses the content of an array of integers.
+ *rot13 - encodes strings using rot13.
+ *@s: pointer to string.
  *
- * @str: s is the array
- *
- * Return: Always 0.
+ *Return: pointer to encoded string.
  */
-char *rot13(char *str)
+char *rot13(char *s)
 {
-	int i = 0, k;
-	char s[] =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char s1[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int stringCount, rotation;
+	char r1[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z'};
+	char r2[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M'};
 
-	for (; str[i] != '\0'; i++)
+	for (stringCount = 0; s[stringCount] != '\0'; stringCount++)
 	{
-		for (k = 0; k <= 51; k++)
+		for (rotation = 0; rotation < 53; rotation++)
 		{
-			if (s[k] == str[i])
+			if (r1[rotation] == s[stringCount])
 			{
-				str[i] = s1[k];
+				s[stringCount] = r2[rotation];
+				break;
 			}
 		}
 	}
-	return (str);
+	return (s);
 }
-
