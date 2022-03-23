@@ -1,48 +1,28 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_number -  checks for checks for a digit (0 through 9).
- * @n: n -  Variable
+ * rot13 - Function that reverses the content of an array of integers.
+ *
+ * @str: s is the array
+ *
  * Return: Always 0.
  */
-void print_number(int n)
+char *rot13(char *str)
 {
-	unsigned int z;
-	int m, b;
+	int i = 0, k;
+	char s[] =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char s1[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	b = 10;
-
-	if (n < 10 && n >= 0)
+	for (; str[i] != '\0'; i++)
 	{
-		_putchar (n + '0');
-	}
-	else if (n > -10 && n < 0)
-	{
-		n = n - 2 * n;
-		_putchar('-');
-		_putchar (n + '0');
-	}
-
-	else
-	{
-		if (n < 0)
+		for (k = 0; k <= 51; k++)
 		{
-			n = n * -1;
-			_putchar ('-');
+			if (s[k] == str[i])
+			{
+				str[i] = s1[k];
+			}
 		}
-		z = n;
-	while (z / b > 9)
-	{
-		b = b * 10;
 	}
-	while (b > 0)
-	{
-		m = z / b;
-		z = z % b;
-		_putchar (m + '0');
-		b = b / 10;
-	}
-	}
+	return (str);
 }
 
